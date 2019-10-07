@@ -2,10 +2,9 @@ import React from "react";
 import styled from 'styled-components'
 import {colors} from '../helper/Constants'
 
-import {useDispatch} from 'react-redux'
+
 import {connect} from "react-redux";
-import * as actions from '../actions'
-import {SORTBYOPT, FILTEROPT} from '../actions/types'
+
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ProgramItem from '../components/ProgramItem'
@@ -26,14 +25,15 @@ const ProgramsContainer = styled.div`
     auto-scroll: none;
 `
 
-const Home = ({currentPrograms, searchTerm, currentIndex}) => {
+const Home = ({currentPrograms, searchTerm, currentIndex, displayTotal}) => {
 
 
     const renderPrograms = () => {
-        const startIndex = currentIndex || 0
-        const displayQuantity =  8
-        const endIndex = startIndex + displayQuantity
-        return currentPrograms.slice(startIndex,endIndex).map(program => (<ProgramItem key={`${program.degree}${program.degreeType}${program.annualTuition}`}program={program} />))
+        const startIndex = currentIndex+1 || 0
+        const endIndex = Math.min(startIndex * displayTotal, currentPrograms.length)
+        return currentPrograms.slice(startIndex,endIndex)
+                                .map(program => (<ProgramItem key={`${program.degree}${program.degreeType}${program.annualTuition}`}
+                                                                program={program} />))
     }
 
     const renderResult = () => {

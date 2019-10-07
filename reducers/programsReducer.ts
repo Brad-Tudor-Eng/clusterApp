@@ -6,18 +6,20 @@ import deepCopy from '../helper/deepCopy'
 import sortPrograms from '../helper/sortPrograms'
 
 
-import {SORTBY, FILTER, SEARCH, SORTBYOPT, FILTEROPT, NEXT, PREVIOUS} from '../actions/types'
+import {SORTBY, FILTER, SEARCH, SORTBYOPT, FILTEROPT, NEXT, PREVIOUS, GO_TO_INDEX} from '../actions/types'
 
 
 const INITIAL_STATE:{   allPrograms:Program[], 
                         currentPrograms:Program[],
                         currentIndex:number,
+                        displayTotal: number,
                         searchTerm:string,
                         sortBy:SORTBYOPT, 
                         filter:FILTEROPT } = {
     allPrograms: [...programs],
     currentPrograms: programs.filter(program => filterProgram(program)),
     currentIndex: 0,
+    displayTotal: 8,
     searchTerm:"",
     sortBy:SORTBYOPT.RELEVANCY,
     filter:FILTEROPT.BACHLORES
@@ -45,10 +47,26 @@ export default  (state=INITIAL_STATE, {type, payload}) => {
             return newState
         }
         case NEXT: {
-            return state
+            const newState = deepCopy(state)
+            let {currentIndex, displayTotal, currentPrograms} = newState
+            currentIndex = Math.min(currentIndex + 1, Math.ceil(currentPrograms.length / displayTotal))
+            newState["currentIndex"] = currentIndex
+            console.log(newState)
+            return newState
         }
         case PREVIOUS: {
-            return state
+            const newState = deepCopy(state)
+            let {currentIndex} = newState
+            currentIndex = Math.max(currentIndex - 1, 0 )
+            newState["currentIndex"] = currentIndex
+            console.log(newState)
+            return newState
+        }
+        case GO_TO_INDEX:{
+            const index = payload
+            const newState = deepCopy(state)
+            newState["currentIndex"] = index;
+            return newState
         }
         default: {
             return state

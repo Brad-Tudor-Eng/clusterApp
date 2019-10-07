@@ -3,7 +3,7 @@ export const SORTBY:string = 'sortby'
 export const FILTER:string = 'filter'
 export const NEXT:string = 'next'
 export const PREVIOUS:string = 'previous'
-
+export const GO_TO_INDEX:string = "goToIndex"
 
 export enum SORTBYOPT{ RELEVANCY='relevancy', 
                     COST_LOW_TO_HIGH='costLowToHigh', 
