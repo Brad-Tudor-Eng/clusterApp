@@ -6,8 +6,9 @@ import { sortBy } from "../actions/index";
 import { SORTBYOPT } from "../actions/types";
 
 const StyledSortMenu = styled.div`
+  font-family: "Open Sans", sans-serif;
   width: 12rem;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 
   button {
     font-size: 1rem;

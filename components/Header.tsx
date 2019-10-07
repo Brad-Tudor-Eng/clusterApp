@@ -9,6 +9,7 @@ import SortMenu from "./SortMenu";
 const StyledHeader = styled.header`
   display: flex;
   flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
 
   h2 {
     margin-left: 1rem;
@@ -17,12 +18,14 @@ const StyledHeader = styled.header`
   }
 `;
 const HeaderTop = styled.div`
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
   border-bottom: 2px solid ${colors.ORANGE};
 `;
 
 const HeaderBottom = styled.div`
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

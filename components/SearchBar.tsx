@@ -11,6 +11,7 @@ import { connect, useDispatch } from "react-redux";
 import { search } from "../actions";
 
 const StyledSearchBar = styled.div`
+  font-family: "Open Sans", sans-serif;
   display: flex;
   align-items: center;
   padding-left: 2rem;
@@ -18,15 +19,26 @@ const StyledSearchBar = styled.div`
 `;
 
 const Input = styled.input`
+  box-size: border-box;
+  height: 80%;
   width: 20rem;
   min-width: 10rem;
-  height: 80%;
+  border-radius: .25rem 0rem 0rem .25rem;
+  border-style: solid;
+  border-width: 1px 0px 1px 1px;
+  border-color: ${colors.LIGHT_GREY}
   outline: none;
+  box-shadow: none;
+  padding-left: .5rem;
 `;
 
 const Submit = styled.button`
+  box-size: border-box;
   height: 100%;
   background-color: ${colors.ORANGE};
+  border: none;
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  box-shadow: none;
 `;
 
 const SearchBar = () => {

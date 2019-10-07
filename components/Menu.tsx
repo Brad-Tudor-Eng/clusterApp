@@ -6,6 +6,7 @@ import {  faChevronDown } from '@fortawesome/free-solid-svg-icons'
 library.add(faChevronDown)
 
 const StyledMenu = styled.div`
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   justify-self: flex-end;
   margin-left: auto;

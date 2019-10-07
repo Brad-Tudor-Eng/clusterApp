@@ -7,7 +7,8 @@ import { useState } from "react";
 
 const StyledFooter = styled.footer`
   margin-top: auto;
-
+  font-family: 'Open Sans', sans-serif;
+  
   .current {
     color: ${colors.ORANGE};
   }
@@ -45,7 +46,7 @@ const Footer = ({ currentCount, currentIndex, displayTotal }) => {
 
   const handlegoToIndex = (pageNumber) => {
     setSelectedIndex(pageNumber)
-    goToIndex(dispatch, pageNumber);
+    goToIndex(dispatch, pageNumber-1);
   }
 
   const renderButtons = () => {

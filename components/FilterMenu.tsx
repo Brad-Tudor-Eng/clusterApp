@@ -8,7 +8,8 @@ const StyledFilterMenu = styled.div`
     display: flex;
     height: 2rem;
     align-items: center;
-
+    font-family: 'Open Sans', sans-serif;
+    
     p{
         padding: 0rem .25rem;
         font-size: 1rem;
