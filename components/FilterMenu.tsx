@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import {colors} from '../helper/Constants'
-import {connect, useDispatch} from 'react-redux'
-import {filter} from '../actions'
-import {FILTEROPT} from '../actions/types'
+import styled from "styled-components";
+import { colors } from "../helper/Constants";
+import { connect, useDispatch } from "react-redux";
+import { filter } from "../actions";
+import { FILTEROPT } from "../actions/types";
 
 const StyledFilterMenu = styled.div`
     display: flex;
@@ -18,27 +18,47 @@ const StyledFilterMenu = styled.div`
         font-size: 1rem;
         outline: none;
         border: none;
+        border: none;
+        background-color: ${colors.WHITE};
     }
 
     button:hover{
         color: ${colors.ORANGE}
         cursor: pointer 
     }
-`
+`;
 
 const FilterMenu = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    return (
-        <StyledFilterMenu>
-            <p>Filter By: </p>
-            <button onClick={()=>{filter(dispatch, FILTEROPT.CERTIFICATE)}}>Certificate</button>
-            <p>|</p>
-            <button onClick={()=>{filter(dispatch, FILTEROPT.ASSOCIATES)}} >Associate's</button>
-            <p>|</p>
-            <button onClick={()=>{filter(dispatch, FILTEROPT.BACHLORES)}} >Bachelor's</button>
-        </StyledFilterMenu>
-    )
-}
+  return (
+    <StyledFilterMenu>
+      <p>Filter By: </p>
+      <button
+        onClick={() => {
+          filter(dispatch, FILTEROPT.CERTIFICATE);
+        }}
+      >
+        Certificate
+      </button>
+      <p>|</p>
+      <button
+        onClick={() => {
+          filter(dispatch, FILTEROPT.ASSOCIATES);
+        }}
+      >
+        Associate's
+      </button>
+      <p>|</p>
+      <button
+        onClick={() => {
+          filter(dispatch, FILTEROPT.BACHLORES);
+        }}
+      >
+        Bachelor's
+      </button>
+    </StyledFilterMenu>
+  );
+};
 
-export default connect()(FilterMenu)
+export default connect()(FilterMenu);

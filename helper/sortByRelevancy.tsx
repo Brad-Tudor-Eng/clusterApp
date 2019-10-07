@@ -1,7 +1,10 @@
-import scoreRelevency from './scoreRelevency'
+import scoreRelevency from "./scoreRelevency";
+import Program from "../models/Program";
 
-const sortByRelevancy = (programs, term) => {
-    return programs.sort( (a, b) => scoreRelevency(a, term)-scoreRelevency(b, term) )
-}
+const sortByRelevancy = (programs: Program[], term: string) => {
+  return programs.sort(
+    (a, b) => scoreRelevency(a, term) - scoreRelevency(b, term)
+  );
+};
 
-export default sortByRelevancy
+export default sortByRelevancy;
